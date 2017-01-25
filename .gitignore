@@ -43,3 +43,5 @@ captures/
 .externalNativeBuild
 
 .DS_Store
+app/libs/
+app/src/main/res/drawable/
