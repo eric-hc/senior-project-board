@@ -5,6 +5,6 @@ This repository contains the necessary pieces to deploy this app on a Raspberry 
  * Raspberry Pi 3 
  * LEDs, resistors, etc.
  
- ## Test API calls
-  * [GET](http://ec2-54-90-70-130.compute-1.amazonaws.com:3001/test2)
-  * [POST](http://ec2-54-90-70-130.compute-1.amazonaws.com:3001/test)
+## Test API calls
+  * GET `ec2-34-195-93-38.compute-1.amazonaws.com:3001/test2`
+  * POST `ec2-34-195-93-38.compute-1.amazonaws.com:3001/test`
