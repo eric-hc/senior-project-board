@@ -9,7 +9,7 @@ display.begin()
 display.clear()
 
 # set pixel at location to on
-display.set_pixel(0, 0, 1) # 1 is on, 0 is off
+display.set_pixel(2, 0, 1) # 1 is on, 0 is off
 print "turn on"
 
 # update LEDs
