@@ -58,5 +58,5 @@ while True:
 
       mbrd[l]=a  # update the current state of the board
       time.sleep(1)
-      display.clear()
-    display.clear()
+      display.set_pixel(2, 0, 0)
+
