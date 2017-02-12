@@ -35,7 +35,6 @@ display = Matrix8x8.Matrix8x8(address=0x70, busnum=1) # default IC2 address is 0
 display.begin()
 display.clear()
 
-
 # now look for a change
 
 # Loop until user presses CTRL-C
@@ -51,12 +50,13 @@ while True:
       y = math.frexp(c)[1]  # calculates integer part of log base 2, which is binary bit position
       w=y+l*8
       print "square", w, " Reed Switch " , dirx    # chcol[(w+2)%3], (int((w-1)/3))+1
-    display.set_pixel(2, 0, 1) # 1 is on, 0 is off
-    print "turn on"
+      display.set_pixel(2, 0, 1) # 1 is on, 0 is off
+      print "turn on"
 
-    # update LEDs
-    display.write_display()
-    time.sleep(3)
+      # update LEDs
+      display.write_display()
+      time.sleep(3)
 
-    mbrd[l]=a  # update the current state of the board
-    time.sleep(0.1)
+      mbrd[l]=a  # update the current state of the board
+      time.sleep(1)
+      display.clear()
