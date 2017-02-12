@@ -10,7 +10,7 @@ display.clear()
 
 while True:
     # turn each LED on
-    for x in range(3):
+    for x in range(7):
         for y in range(3):
             # x =int((xled-1)/3)+1   # anodes numbers starts 1
             # y =  (2+xled)%3   # cathodes number start 0
@@ -26,6 +26,5 @@ while True:
             display.write_display()
 
             time.sleep(0.5)
-
 
 display.clear()
