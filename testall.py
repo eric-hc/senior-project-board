@@ -50,8 +50,24 @@ while True:
       y = math.frexp(c)[1]  # calculates integer part of log base 2, which is binary bit position
       w=y+l*8
       print "Square", w, " Reed Switch is" , dirx    # chcol[(w+2)%3], (int((w-1)/3))+1
-      display.set_pixel(2, 0, 1) # 1 is on, 0 is off
-      print "turn on"
+      if w == 9:
+        display.set_pixel(1, 0, 1)
+      elif w == 10:
+        display.set_pixel(1, 1, 1)
+      elif w == 11:
+        display.set_pixel(1, 2, 1)
+      elif w == 12:
+        display.set_pixel(2, 0, 1)
+      elif w == 13:
+        display.set_pixel(2, 1, 1)
+      elif w == 14:
+        display.set_pixel(2, 2, 1)
+      elif w == 15:
+        display.set_pixel(3, 0, 1)
+      elif w == 16:
+        display.set_pixel(3, 1, 1)
+      elif w == 1:
+        display.set_pixel(3, 2, 1)
 
       # update LEDs
       display.write_display()

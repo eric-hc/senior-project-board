@@ -15,7 +15,7 @@ while True:
             y = (2 + led) % 3   # cathodes number start 0
 
             # clear buffer
-            # display.clear()
+            display.clear()
 
             # set pixel at location to on
             display.set_pixel(x, y, 1) # 1 is on, 0 is off
@@ -24,5 +24,5 @@ while True:
             print "Square ", led
             display.write_display()
 
-            time.sleep(0.5)
+            time.sleep(0.1)
     display.clear()
