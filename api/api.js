@@ -28,4 +28,5 @@ app.post('/hit', function(req, res) {
 
 app.use('/api', router);
 app.listen(port);
+console.log('Magic happening on port ' + port);
 
