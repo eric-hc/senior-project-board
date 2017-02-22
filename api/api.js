@@ -23,10 +23,6 @@ router.get('/', function (req, res) {
     });
 });
 
-app.post('/hit', function (req, res) {
-
-});
-
 router.route('/ships')
     .get(function (req, res) {
         res.json({
