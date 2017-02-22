@@ -9,8 +9,8 @@ This repository contains the necessary pieces to deploy this app on a Raspberry 
  * LEDs, reed switches, resistors, etc.
  
 ## API calls
-  * `/ships`
-  * `/hit`
+  * `/ships` returns a list of coordinates in which the player has placed their ships
+  * `/hit` turn an LED on
   
 ## Configuring I2C
   * Run `sudo raspi-config` 
