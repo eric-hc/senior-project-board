@@ -12,9 +12,9 @@ var port = process.env.PORT || 8080;
 var router = express.Router();
 
 // middleware to use for all requests
-router.use(function(req, res, next) {
+router.use(function (req, res, next) {
     console.log('Request sent to API...');
-    next(); 
+    next();
 });
 
 router.get('/', function (req, res) {
@@ -28,17 +28,16 @@ app.post('/hit', function (req, res) {
 });
 
 router.route('/ships')
-    .get(function(req, res) {
-    res.json({
-        message: 'These are your ships, motherfucker'
+    .get(function (req, res) {
+        res.json({
+            message: 'These are your ships, motherfucker'
+        });
     });
-    })
-;
 
 router.route('/hit/:xy')
-    .post(function(req, res) {
+    .post(function (req, res) {
 
-});
+    });
 
 app.use('/api', router);
 app.listen(port);
