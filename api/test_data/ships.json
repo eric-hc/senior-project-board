@@ -2,7 +2,7 @@
     "ships": {
         "id0": 0,
         "ship0": [{
-            "name": "battleship",
+            "name": "aircraft_carrier",
             "position-x": [0, 0, 0, 0, 0] ,"position-y": [0, 1, 2, 3, 4],
             "health": 5
 		}],
