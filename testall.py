@@ -3,14 +3,13 @@ import time
 import math
 # Module for NOX : Noughts and crosses / Tic Tac Toe Game
 # this program scans both registers one device, giving 2 x 8 = 16 inputs, only 9 of these are used in the NOX program
-#bus = smbus.SMBus(0)  # Rev 1 Pi uses 0
-bus = smbus.SMBus(1) # Rev 2 Pi uses 1
+bus = smbus.SMBus(1) # Rev 2 Pi uses 1, Rev 1 Pi uses 0
 # this program scans both the A and B registers of one MCP23017 port exapander and returns changes
 mbrd = [0xFF,0xFF]   # mbrd is the noughts and crosses board  this sets them to 11111111 : open w
 chcol =["A","B","C"]  # column labels
 i2cadd=0x21 # the I2c Device address of the MCP23017s (A0-A2)
 GPIOn = [0x12, 0x13]
-IODIRA = 0x00 # APin direction register for first 8 ie 1 = input or 2= output
+IODIRA = 0x00 # APin direction register for first 8 ie 1 = input or 2 = output
 IODIRB = 0x01 # B Pin direction register
 GPIOA  = 0x12 # Register for inputs
 GPIOB  = 0x13 # B Register for inputs
