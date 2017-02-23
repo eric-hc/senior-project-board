@@ -1,0 +1,10 @@
+{
+    "ships": [
+        "id": 0,
+        "ship": {
+            "name": "battleship",
+            "position": [00, 01, 02],
+            "health": 5
+        }
+    ]
+}
