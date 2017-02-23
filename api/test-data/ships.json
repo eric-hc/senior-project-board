@@ -1,10 +1,14 @@
 {
-    "ships": [
+    "ships": {
         "id": 0,
-        "ship": {
+        "ship": [{
             "name": "battleship",
-            "position": [00, 01, 02],
+            "position": [00, 01, 02, 03, 04, 05],
             "health": 5
-        }
-    ]
+		}, {
+            "name": "sub",
+            "position": [00, 01, 02],
+            "health": 3
+		}]
+    }
 }
