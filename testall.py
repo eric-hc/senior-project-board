@@ -51,7 +51,10 @@ while True:
       print "Square", w, " Reed Switch is" , dirx    # chcol[(w+2)%3], (int((w-1)/3))+1
       if w == 8:
             for x in range(0, 3):
-                display.set_pixel(x, y, 1);
+                display.set_pixel(x, 0, 1);
+                display.set_pixel(x, 1, 1);
+                display.set_pixel(x, 2, 1);
+                display.set_pixel(x, 3, 1);
       elif w == 9:
         display.set_pixel(1, 0, 1)
       elif w == 10:
