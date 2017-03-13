@@ -49,7 +49,10 @@ while True:
       y = math.frexp(c)[1]  # calculates integer part of log base 2, which is binary bit position
       w=y+l*8
       print "Square", w, " Reed Switch is" , dirx    # chcol[(w+2)%3], (int((w-1)/3))+1
-      if w == 9:
+      if w == 8:
+            for x in range(0, 3):
+                display.set_pixel(x, y, 1);
+      elif w == 9:
         display.set_pixel(1, 0, 1)
       elif w == 10:
         display.set_pixel(1, 1, 1)
@@ -75,4 +78,3 @@ while True:
       time.sleep(1)
       display.clear()
       display.write_display()
-
