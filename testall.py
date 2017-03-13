@@ -68,7 +68,22 @@ while True:
       elif w == 14:
         display.set_pixel(2, 2, 1)
       elif w == 15:
-        display.set_pixel(3, 0, 1)
+        display.set_pixel(0, 0, 1);
+        display.set_pixel(0, 1, 1);
+        display.set_pixel(0, 2, 1);
+        display.set_pixel(0, 3, 1);
+        display.set_pixel(1, 0, 1);
+        display.set_pixel(1, 1, 1);
+        display.set_pixel(1, 2, 1);
+        display.set_pixel(1, 3, 1);
+        display.set_pixel(2, 0, 1);
+        display.set_pixel(2, 1, 1);
+        display.set_pixel(2, 2, 1);
+        display.set_pixel(2, 3, 1);
+        display.set_pixel(3, 0, 1);
+        display.set_pixel(3, 1, 1);
+        display.set_pixel(3, 2, 1);
+        display.set_pixel(3, 3, 1);
       elif w == 16:
         display.set_pixel(3, 1, 1)
       elif w == 1:
