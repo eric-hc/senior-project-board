@@ -8,7 +8,7 @@ from Adafruit_LED_Backpack import Matrix8x8
 
 #LED setup
 # Create display instance on default I2C address (0x70) and bus number.
-display = Matrix8x8.Matrix8x8(address=0x75, busnum=1)
+display = Matrix8x8.Matrix8x8(address=0x70, busnum=1)
 # check using I2cdetect -y 1  to make sure the address is 70, if not edit the line above to change it
 # the correct address
 
@@ -59,8 +59,8 @@ while True:
       x =int((w-1)/3)+1   # anodes numbers starts 1
       y =  (2+w)%3   # cathodes number start 0
 
-      if dirx == "Close":   display.set_pixel(x, y, 1)  # switch on the LED
-      if dirx == "Open":   display.set_pixel(x, y, 0)  # switch off the LED
+      if dirx == "Close":   display.set_pixel(1, 0, 1)  # switch on the LED
+      if dirx == "Open":   display.set_pixel(1, 0, 0)  # switch off the LED
 
       display.write_display()
       print "square", w, " Reed Switch " , dirx    # chcol[(w+2)%3], (int((w-1)/3))+1
