@@ -58,7 +58,7 @@ while True:
       if dirx == "Open":   display.set_pixel(1, 0, 0)  # switch off the LED
 
       display.write_display()
-      print "Reed Switch " , w, " ", dirx    # chcol[(w+2)%3], (int((w-1)/3))+1
+      print "Reed Switch" , w, dirx    # chcol[(w+2)%3], (int((w-1)/3))+1
 
       mbrd[l]=a  # update the current state of the board
       time.sleep(0.1)
