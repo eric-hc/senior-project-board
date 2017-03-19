@@ -1,16 +1,14 @@
 {
-    "ships": {
-        "id0": 0,
-        "ship0": [{
-            "name": "aircraft_carrier",
-            "position-x": [0, 0, 0, 0, 0] ,"position-y": [0, 1, 2, 3, 4],
+    "ships": [
+        {
+            "name": "aircraft-carrier",
+            "position": ["a1", "b1", "c1", "d1", "e1"],
             "health": 5
-		}],
-        "id1": 1,
-        "ship1": [{
-            "name": "sub",
-            "position-x": [0, 0, 0],"position-y":[0, 1, 2],
-            "health": 3
-		}]
-    }
+		},
+        {
+            "name": "cruiser",
+            "position": ["a5", "b5"],
+            "health": 2
+        }
+    ]
 }
