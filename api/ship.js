@@ -1,13 +1,13 @@
-function ship(name, coords, health) {
+function ship(name, coords, health, board) {
     this.name = name;
     this.coords = coords;
     this.health = health;
+    this.board = board;
 }
 
+/* Get coordinate data from Python script */
 var coords = [
-    [0, 0],
-    [0, 1],
-    [0, 2]
+    "a2", "b2", "c2"
 ];
 
-var myShip = new ship("battleship", coords, 3);
+var myShip = new ship("battleship", coords, 3, 1);
