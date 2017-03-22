@@ -43,11 +43,6 @@ var socket = io.connect('http://ec2-34-195-93-38.compute-1.amazonaws.com:3002', 
 // add a listener
 socket.on('connect', function (socket) {
     console.log('Connected!');
-
-    // disconnect listener
-    socket.on('disconnect', function () {
-        console.log('Disconnected');
-    });
 });
 
 socket.on('led', function (data) {
