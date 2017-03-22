@@ -26,13 +26,8 @@ router.get('/', function (req, res) {
 router.route('/ships')
     .get(function (req, res) {
         res.json({
-            message: 'These are your ships, motherfucker'
+            message: 'These are your ships'
         });
-    });
-
-router.route('/hit/:xy')
-    .post(function (req, res) {
-
     });
 
 app.use('/api', router);
@@ -41,9 +36,21 @@ console.log('Magic happening on port ' + port);
 
 // connect to server
 var io = require('socket.io-client')
-var socket = io.connect('http://ec2-34-195-93-38.compute-1.amazonaws.com:3002', {reconnect: true});
+var socket = io.connect('http://ec2-34-195-93-38.compute-1.amazonaws.com:3002', {
+    reconnect: true
+});
 
-// Add a listener
-socket.on('connect', function(socket) {
-	console.log('Connected!');
+// add a listener
+socket.on('connect', function (socket) {
+    console.log('Connected!');
+
+    // disconnect listener
+    socket.on('disconnect', function () {
+        console.log('Disconnected');
+    });
+});
+
+socket.on('led', function (data) {
+    console.log('Getting coordinate');
+    console.log(data);
 });
