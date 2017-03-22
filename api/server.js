@@ -41,7 +41,7 @@ console.log('Magic happening on port ' + port);
 
 // connect to server
 var io = require('socket.io-client')
-var socket = io.connect('localhost:8080', {reconnect: true});
+var socket = io.connect('http://ec2-34-195-93-38.compute-1.amazonaws.com:3002', {reconnect: true});
 
 // Add a listener
 socket.on('connect', function(socket) {
