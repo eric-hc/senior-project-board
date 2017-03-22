@@ -38,3 +38,12 @@ router.route('/hit/:xy')
 app.use('/api', router);
 app.listen(port);
 console.log('Magic happening on port ' + port);
+
+// connect to server
+var io = require('socket.io-client')
+var socket = io.connect('localhost:8080', {reconnect: true});
+
+// Add a listener
+socket.on('connect', function(socket) {
+	console.log('Connected!');
+});

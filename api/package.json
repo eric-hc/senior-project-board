@@ -1,9 +1,10 @@
 {
-    "name": "battleship-api",
-    "main": "api.js",
-    "dependencies": {
-        "express": "~4.0.0",
-        "mongoose": "~3.6.13",
-        "body-parser": "~1.0.1"
-    }
+  "name": "battleship-api",
+  "main": "api.js",
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0",
+    "mongoose": "~3.6.13",
+    "socket.io-client": "^1.7.3"
+  }
 }

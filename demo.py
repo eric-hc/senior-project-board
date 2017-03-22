@@ -37,7 +37,7 @@ bus.write_byte_data(i2cadd,IODIRB,0xFF)
 # Set pull up on GPB pins .ie from default of 0 to 11111111
 bus.write_byte_data(i2cadd,GPPUB,0xFF)
 
-print "starting"
+print "Starting...."
 
 # Loop through looking for a change
 while True:
