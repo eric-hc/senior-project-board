@@ -4,9 +4,9 @@ var app = express();
 var bodyParser = require('body-parser');
 
 // shit for Python
-var sys   = require('util'),
+var sys = require('util'),
     spawn = require('child_process').spawn,
-    send_ships  = spawn('python', ['test.py']);
+    send_ships = spawn('python', ['test.py']);
 
 send_ships.stdout.pipe(process.stdout);
 send_ships.stderr.pipe(process.stderr);
@@ -53,11 +53,11 @@ socket.on('connect', function (socket) {
     console.log('Connected');
 });
 
-// game is ready, get ship data
-socket.on('getShips', function (data) {
-send_ships.stdout.on('data', function(data) {
-   console.log(data.toString());
-});
+// game is ready, get ship data from python script
+socket.on('ships', function (data) {
+    send_ships.stdout.on('data', function (data) {
+        console.log(data.toString());
+    });
 });
 
 // send ships to server
