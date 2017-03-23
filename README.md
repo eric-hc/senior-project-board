@@ -6,11 +6,7 @@ This repository contains the necessary pieces to deploy this app on a Raspberry 
  * Raspberry Pi 3 
  * HT16K33 LED Matrix
  * MCP23017 port expander 
- * LEDs, reed switches, resistors, etc.
- 
-## API calls
-  * `/ships` returns a list of coordinates in which the player has placed their ships
-  * `/hit` turn an LED on
+ * LEDs, reed switches, etc.
   
 ## Configuring I2C
   * Run `sudo raspi-config` 
