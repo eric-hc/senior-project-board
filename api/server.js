@@ -40,12 +40,19 @@ var socket = io.connect('http://ec2-34-195-93-38.compute-1.amazonaws.com:3002', 
     reconnect: true
 });
 
-// add a listener
+// connect listener
 socket.on('connect', function (socket) {
-    console.log('Connected!');
+    console.log('Connected');
 });
 
+// led listener
 socket.on('led', function (data) {
     console.log('Getting coordinate');
     console.log(data);
 });
+
+// send ships
+ship = ["a1", "a2", "a3"];
+socket.emit(
+    'join', ship;
+);
