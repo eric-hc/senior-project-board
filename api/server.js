@@ -4,9 +4,12 @@ var app = express();
 var bodyParser = require('body-parser');
 
 // shit for Python
-var sys   = require('sys'),
+var sys   = require('util'),
     spawn = require('child_process').spawn,
-    send_ships  = spawn('python', ['findShips8x8.py']);
+    send_ships  = spawn('python', ['test.py']);
+
+send_ships.stdout.pipe(process.stdout);
+send_ships.stderr.pipe(process.stderr);
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -52,11 +55,9 @@ socket.on('connect', function (socket) {
 
 // game is ready, get ship data
 socket.on('getShips', function (data) {
-
-});
-
 send_ships.stdout.on('data', function(data) {
-   sys.print(data.toString());
+   console.log(data.toString());
+});
 });
 
 // send ships to server
