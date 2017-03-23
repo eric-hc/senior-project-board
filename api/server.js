@@ -3,6 +3,11 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
+// shit for Python
+var sys   = require('sys'),
+    spawn = require('child_process').spawn,
+    send_ships  = spawn('python', ['findShips8x8.py']);
+
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -45,15 +50,23 @@ socket.on('connect', function (socket) {
     console.log('Connected');
 });
 
+// game is ready, get ship data
+socket.on('getShips', function (data) {
+
+});
+
+send_ships.stdout.on('data', function(data) {
+   sys.print(data.toString());
+});
+
+// send ships to server
+ship = ["a1", "a2", "a3"];
+socket.emit('join', {
+    ship
+});
+
 // led listener
 socket.on('led', function (data) {
     console.log('Getting coordinate');
     console.log(data);
 });
-
-// send ships
-ship = ["a1", "a2", "a3"];
-socket.emit('join', {
-    ship
-}
-);
