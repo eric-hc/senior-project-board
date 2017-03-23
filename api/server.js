@@ -53,6 +53,7 @@ socket.on('led', function (data) {
 
 // send ships
 ship = ["a1", "a2", "a3"];
-socket.emit(
-    'join', ship;
+socket.emit('join', {
+    ship
+}
 );
