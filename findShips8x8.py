@@ -38,13 +38,4 @@ while True:
         print c, y, dirx
         mdrd[k + l] = a  # update the current state of the board
         time.sleep(0.1)
-
-def send() :
-    out = '';
-    for i in range(0, 10) :
-        out += str(i + 1) + ", "
-        time.sleep(0.1)
-    print out
-
-if __name__ == '__main__' :
-    test = test()
+        
