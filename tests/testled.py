@@ -21,7 +21,7 @@ while True:
             display.set_pixel(x, y, 1) # 1 is on, 0 is off
             print("x = ", x)
             print("Y = ", y)
-            
+
             # update LEDs
             print "Square ", led
             display.write_display()
