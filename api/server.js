@@ -56,12 +56,13 @@ socket.on('connect', function (socket) {
 // game is ready, get ship data from python script
 socket.on('ships', function (data) {
     send_ships.stdout.on('data', function (data) {
-        console.log(data.toString());
+        console.log('Sending to server: ' + data.toString());
+        socket.emit('join', {data});
     });
 });
 
 // send ships to server
-ship = ["a1", "a2", "a3"];
+ship = ["This is static data", "a1", "a2", "a3"];
 socket.emit('join', {
     ship
 });

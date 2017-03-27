@@ -1,7 +1,7 @@
 import time;
 
 def send() :
-    print 'these are your ships'
+    print 'Data from Python script....'
 
 if __name__ == '__main__' :
     send = send()
