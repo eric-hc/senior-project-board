@@ -53,7 +53,8 @@ socket.on('ships', function (data) {
 
     pyshell.on('message', function (message) {
         // received a message sent from the Python script
-        console.log('pyshell msg:' + message);
+        console.log(message);
+        socket.emit('get-ships', message);
     });
 
     // end the input stream and allow the process to exit
