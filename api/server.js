@@ -3,13 +3,11 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
-// shit for Python
-var sys = require('util'),
-    spawn = require('child_process').spawn,
-    send_ships = spawn('python', ['test.py']);
-
-send_ships.stdout.pipe(process.stdout);
-send_ships.stderr.pipe(process.stderr);
+// nodejs-python communication library
+var PythonShell = require('python-shell');
+var pyshell = new PythonShell('test.py', {
+    mode: 'json'
+});
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -31,13 +29,6 @@ router.get('/', function (req, res) {
     });
 });
 
-router.route('/ships')
-    .get(function (req, res) {
-        res.json({
-            message: 'These are your ships'
-        });
-    });
-
 app.use('/api', router);
 app.listen(port);
 console.log('Magic happening on port ' + port);
@@ -53,12 +44,24 @@ socket.on('connect', function (socket) {
     console.log('Connected');
 });
 
-// game is ready, get ship data from python script
+// game is ready, get ship data from python script and send to server
 socket.on('ships', function (data) {
-    send_ships.stdout.on('data', function (data) {
-        console.log('Sending to server: ' + data.toString());
-        socket.emit('join', {data});
+    console.log(data);
+
+    // sends a message to the Python script via stdin
+    pyshell.send('get data');
+
+    pyshell.on('message', function (message) {
+        // received a message sent from the Python script
+        console.log('pyshell msg:' + message);
     });
+
+    // end the input stream and allow the process to exit
+    pyshell.end(function (err) {
+        if (err) throw err;
+        console.log('pyshell finished');
+    });
+
 });
 
 // send ships to server

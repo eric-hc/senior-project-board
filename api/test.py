@@ -1,7 +1,9 @@
-import time;
+import sys, json
 
-def send() :
-    print 'Data from Python script....'
+data = {"python": 3, "test": 2, "data": 1}
 
-if __name__ == '__main__' :
-    send = send()
+ships = json.dumps(data)
+
+# simple JSON echo script
+for line in sys.stdin:
+  print json.dumps(data)
