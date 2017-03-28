@@ -65,12 +65,6 @@ socket.on('ships', function (data) {
 
 });
 
-// send ships to server
-ship = ["This is static data", "a1", "a2", "a3"];
-socket.emit('join', {
-    ship
-});
-
 // led listener
 socket.on('led', function (data) {
     console.log('Getting coordinate');
