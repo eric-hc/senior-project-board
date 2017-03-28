@@ -70,3 +70,8 @@ socket.on('led', function (data) {
     console.log('Getting coordinate');
     console.log(data);
 });
+
+// disconnect
+socket.on('disconnect', function () {
+    io.emit('Board disconnected');
+});
