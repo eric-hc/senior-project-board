@@ -67,8 +67,7 @@ socket.on('ships', function (data) {
 
 // led listener
 socket.on('led', function (data) {
-    console.log('Getting coordinate');
-    console.log(data);
+    console.log('Got coordinate' + data);
 });
 
 // disconnect

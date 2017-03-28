@@ -14,10 +14,10 @@ class Ship(object):
         self.board = board
 
     # other methods
-    def valid_board(self):
-        return 0 <=self.board <= 1
+    def validBoard(self):
+        return 0 <= self.board <= 1
 
-def make_ship(name, pos, health, board):
+def makeShip(name, pos, health, board):
     ship = Ship(name, pos, health, board)
     return ship
 
@@ -29,7 +29,7 @@ def toJson():
 def test():
     s = Ship('Ship name', 000, 2, 0)
     print s.name
-    print "Is valid board: %s" % s.valid_board()
+    print "Is valid board: %s" % s.validBoard()
 
 if __name__ == '__main__':
     test()
