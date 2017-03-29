@@ -20,11 +20,7 @@
 # THE SOFTWARE.
 import time
 
-from PIL import Image
-from PIL import ImageDraw
-
 from Adafruit_LED_Backpack import Matrix8x8
-
 
 # Create display instance on default I2C address (0x70) and bus number.
 display = Matrix8x8.Matrix8x8()
@@ -55,7 +51,7 @@ for x in range(8):
 #display.clear()
 
 # First create an 8x8 1 bit color image.
-image = Image.new('1', (8, 8))
+#image = Image.new('1', (8, 8))
 
 # Then create a draw instance.
 #draw = ImageDraw.Draw(image)

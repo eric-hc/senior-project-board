@@ -8,7 +8,7 @@ var PythonShell = require('python-shell');
 var pyshell = new PythonShell('test.py', {
     mode: 'json'
 });
-
+var pyled = new PythonShell('testled.py');
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -58,16 +58,27 @@ socket.on('ships', function (data) {
     });
 
     // end the input stream and allow the process to exit
-    pyshell.end(function (err) {
+    /*pyshell.end(function (err) {
         if (err) throw err;
         console.log('pyshell finished');
-    });
+    });*/
 
 });
 
 // led listener
 socket.on('led', function (data) {
-    console.log('Got coordinate' + data);
+    console.log('Got coordinate ' + data.cell + ' on board ' + data.board);
+    pyled.on('message', function (message) {
+        console.log(message);
+    });
+
+    pyled.send(data);
+
+    // end the input stream and allow the process to exit
+    /*pyled.end(function (err) {
+        if (err) throw err;
+        console.log('finished');
+    });*/
 });
 
 // disconnect
