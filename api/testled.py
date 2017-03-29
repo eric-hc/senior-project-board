@@ -25,4 +25,8 @@ display.write_display()
 
 for line in sys.stdin:
     print('turn on led')
+    display = Matrix8x8.Matrix8x8()
+    display.begin()
+    display.clear()
     display.set_pixel(0, 0, 1)
+    display.write_display()

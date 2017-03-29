@@ -67,7 +67,9 @@ socket.on('ships', function (data) {
 
 // led listener
 socket.on('led', function (data) {
-    console.log('Got coordinate ' + data.cell + ' on board ' + data.board);
+    console.log('Hit coordinate ' + data.cell + ' on board ' + data.board);
+    pyled.send(data.cell);
+
     pyled.on('message', function (message) {
         console.log(message);
     });
