@@ -47,7 +47,7 @@ for x in range(8):
 		# update the actual display LEDs.
 		display.write_display()
 		# Delay for half a second.
-		time.sleep(0.1)
+		time.sleep(0.2)
 
 # Draw some shapes using the Python Imaging Library.
 
