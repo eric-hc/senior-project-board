@@ -47,31 +47,31 @@ for x in range(8):
 		# update the actual display LEDs.
 		display.write_display()
 		# Delay for half a second.
-		time.sleep(0.5)
+		time.sleep(0.1)
 
 # Draw some shapes using the Python Imaging Library.
 
 # Clear the display buffer.
-display.clear()
+#display.clear()
 
 # First create an 8x8 1 bit color image.
 image = Image.new('1', (8, 8))
 
 # Then create a draw instance.
-draw = ImageDraw.Draw(image)
+#draw = ImageDraw.Draw(image)
 
 # Draw a rectangle with colored outline
-draw.rectangle((0,0,7,7), outline=255, fill=0)
+#draw.rectangle((0,0,7,7), outline=255, fill=0)
 
 # Draw an X with two lines.
-draw.line((1,1,6,6), fill=255)
-draw.line((1,6,6,1), fill=255)
+#draw.line((1,1,6,6), fill=255)
+#draw.line((1,6,6,1), fill=255)
 
 # Draw the image on the display buffer.
-display.set_image(image)
+#display.set_image(image)
 
 # Draw the buffer to the display hardware.
-display.write_display()
+#display.write_display()
 
 # See the SSD1306 library for more examples of using the Python Imaging Library
 # such as drawing text: https://github.com/adafruit/Adafruit_Python_SSD1306

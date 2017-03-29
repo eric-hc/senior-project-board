@@ -10,7 +10,7 @@ display.clear()
 
 while True:
     # turn each LED on
-    for led in range(1, 10):
+    for led in range(1, 65):
             x = int((led - 1) / 3) + 1   # anodes numbers starts 1
             y = (2 + led) % 3   # cathodes number start 0
 
@@ -26,5 +26,5 @@ while True:
             print "Square ", led
             display.write_display()
 
-            time.sleep(2)
+            time.sleep(.2)
     display.clear()
