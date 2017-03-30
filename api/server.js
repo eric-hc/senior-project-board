@@ -5,9 +5,6 @@ var bodyParser = require('body-parser');
 
 // nodejs-python communication library
 var PythonShell = require('python-shell');
-var pyshell = new PythonShell('test.py', {
-    mode: 'json'
-});
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -48,6 +45,10 @@ socket.on('connect', function (socket) {
 socket.on('ships', function (data) {
     console.log(data);
 
+    var pyshell = new PythonShell('test.py', {
+        mode: 'json'
+    });
+
     // sends a message to the Python script via stdin
     pyshell.send('get data');
 
@@ -58,18 +59,19 @@ socket.on('ships', function (data) {
     });
 
     // end the input stream and allow the process to exit
-    /*pyshell.end(function (err) {
+    pyshell.end(function (err) {
         if (err) throw err;
         console.log('pyshell finished');
-    });*/
+    });
 
 });
 
 // led listener
 socket.on('led', function (data) {
-var pyled = new PythonShell('testled.py', {
-    mode: 'text'
-});
+    var pyled = new PythonShell('testled.py', {
+        mode: 'text'
+    });
+
     console.log('Hit coordinate ' + data.cell + ' on board ' + data.board);
 
     // send cell to python
@@ -81,10 +83,10 @@ var pyled = new PythonShell('testled.py', {
     });
 
     // end the input stream and allow the process to exit
-    /*pyled.end(function (err) {
+    pyled.end(function (err) {
         if (err) throw err;
         console.log('finished');
-    });*/
+    });
 });
 
 // disconnect

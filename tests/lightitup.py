@@ -38,12 +38,13 @@ for x in range(8):
 		display.clear()
 		# Set pixel at position i, j to on.  To turn off a pixel set
 		# the last parameter to 0.
-		display.set_pixel(x, y, 1)
+		display.set_pixel(x+1, y, 1)
+		print(x+1, y)
 		# Write the display buffer to the hardware.  This must be called to
 		# update the actual display LEDs.
 		display.write_display()
 		# Delay for half a second.
-		time.sleep(0.2)
+		time.sleep(.2)
 
 # Draw some shapes using the Python Imaging Library.
 
