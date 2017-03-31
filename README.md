@@ -15,3 +15,4 @@ This repository contains the necessary pieces to deploy this app on a Raspberry 
   * Select Yes, Yes
   * Reboot with `sudo reboot`
   * Test with `sudo i2cdetect -y 1`
+  * Try this `sudo apt-get install python-smbus`
