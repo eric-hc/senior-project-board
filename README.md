@@ -10,9 +10,14 @@ This repository contains the necessary pieces to deploy this app on a Raspberry 
   
 ## Configuring I2C
   * Run `sudo raspi-config` 
-  * Interfacing Options
-  * P5 I2C
+  * Select `Interfacing Options`
+  * Select `P5 I2C`
   * Select Yes, Yes
   * Reboot with `sudo reboot`
   * Test with `sudo i2cdetect -y 1`
   * Try this `sudo apt-get install python-smbus`
+  
+## Running the server manually
+`cd` into the correct folder 
+ * `/api`
+`node server.js`
