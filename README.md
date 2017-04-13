@@ -18,6 +18,5 @@ This repository contains the necessary pieces to deploy this app on a Raspberry 
   * Try this `sudo apt-get install python-smbus`
   
 ## Running the server manually
-`cd` into the correct folder 
- * `/api`
-`node server.js`
+ * `cd` into the correct folder, `/api`
+ * `node server.js`
