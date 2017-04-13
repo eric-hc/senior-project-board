@@ -49,7 +49,7 @@ socket.on('connect', function (socket) {
 socket.on('ships', function (data) {
     console.log(data);
 
-    var pyshell = new PythonShell('test.py', {
+    var pyshell = new PythonShell('get_ships.py', {
         mode: 'json'
     });
 
@@ -72,7 +72,7 @@ socket.on('ships', function (data) {
 
 // led listener
 socket.on('led', function (data) {
-    var pyled = new PythonShell('testled.py', {
+    var pyled = new PythonShell('led_hit.py', {
         mode: 'text'
     });
 
