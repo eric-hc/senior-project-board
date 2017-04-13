@@ -7,6 +7,13 @@ display = Matrix8x8.Matrix8x8()
     display.begin()
     display.clear()
 
+# acts as a switch statement to map alphabet coordinates to board values
+def map(x):
+    return {
+        'a': 1,
+        'b': 2
+    }[x]
+
 for line in sys.stdin:
     var coord = line[:-1]
     print coord
