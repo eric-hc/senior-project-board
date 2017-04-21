@@ -18,6 +18,15 @@ This repository contains the necessary pieces to deploy this app on a Raspberry 
   * Test with `sudo i2cdetect -y 1`
   * Try this `sudo apt-get install python-smbus`
   
+## Add Adafruit GPIO dependencies
+  * `sudo apt-get updates`
+  * `sudo apt-get install build-essential python-pip python-dev python-smbus git`
+  * `git clone https://github.com/adafruit/Adafruit_Python_GPIO.git`
+  * `cd Adafruit_Python_GPIO`
+  * `sudo python setup.py install`
+  
+## Add Adafruit LED Matrix dependency
+  
 ## Running the server manually
  * Open Terminal
  * `cd` into the correct folder, `/api`
