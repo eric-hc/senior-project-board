@@ -10,9 +10,10 @@ This repository contains the necessary pieces to deploy this app on a Raspberry 
   
 ## Configuring I2C
   * Run `sudo raspi-config` 
-  * Select `Interfacing Options`
+  * Select `5 Interfacing Options`
   * Select `P5 I2C`
   * Select Yes, Yes
+  * Select Finish
   * Reboot with `sudo reboot`
   * Test with `sudo i2cdetect -y 1`
   * Try this `sudo apt-get install python-smbus`
