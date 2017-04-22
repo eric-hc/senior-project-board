@@ -3,6 +3,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
+var hits = []
+
 // nodejs-python communication library
 var PythonShell = require('python-shell');
 
@@ -11,7 +13,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8081;
 var router = express.Router();
 
 // middleware to use for all requests
@@ -73,13 +75,14 @@ socket.on('ships', function (data) {
 // led listener
 socket.on('led', function (data) {
     var pyled = new PythonShell('led_hit.py', {
-        mode: 'text'
+        mode: 'json'
     });
 
     console.log('Hit coordinate ' + data.cell + ' on board ' + data.board);
+    hits.push(data.cell)
 
     // send cell to python
-    pyled.send(data.cell);
+    pyled.send({hits: hits});
 
     // get message from python
     pyled.on('message', function (message) {
