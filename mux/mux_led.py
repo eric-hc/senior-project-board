@@ -39,7 +39,7 @@ bus = smbus.SMBus(I2C_bus_number)
 # this program scans 64 inputs on 4 MCP23017 port exapanders and returns changes 
 mbrd = [0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF]   # mbrd is the 8 columns of the chess board this sets them to 11111111 : open w
 chcol =["A","B","C","D","E","F","G","H",'X','Y']
-DEVICE = [0x21,0x22,0x23, 0x24]  # the 4 I2c Device address of the MCP23017s (A0-A2)
+DEVICE = [0x21,0x22,0x23, 0x20]  # the 4 I2c Device address of the MCP23017s (A0-A2)
 GPIOn = [0x12, 0x13]
 IODIRA = 0x00 # APin direction register for first 8 ie 1 = input or 2= output
 IODIRB = 0x01 # B Pin direction register
@@ -84,9 +84,6 @@ for i in range(0,4):  # only device 4 available
 while True:
   # read the 8 registers
   for k in range(0,4):
-
-    
-   
     # time.sleep(0.1)  # just in case  
 
 

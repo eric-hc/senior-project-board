@@ -21,7 +21,7 @@ bus = smbus.SMBus(I2C_bus_number)
 # this program scans 64 inputs on 4 MCP23017 port exapanders and returns changes 
 mbrd = [0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF]   # mbrd is the 8 columns of the chess board this sets them to 11111111 : open w
 chcol =["A","B","C","D","E","F","G","H",'X','Y']
-DEVICE = [0x21,0x22,0x23, 0x24]  # the 4 I2c Device address of the MCP23017s (A0-A2)
+DEVICE = [0x21,0x22,0x23, 0x20]  # the 4 I2c Device address of the MCP23017s (A0-A2)
 GPIOn = [0x12, 0x13]
 IODIRA = 0x00 # APin direction register for first 8 ie 1 = input or 2= output
 IODIRB = 0x01 # B Pin direction register
@@ -32,12 +32,11 @@ GPPUB= 0x0D  # Register for Pull ups B
 
 # first we do a one time setup of the MCPs
 for i in range(0,4):  # for each of the 4 MCPs
-  print 'loop numer ', i
 # first calculate channel code to send to MUX
 # MCPs on channels 2, 3, 4, 5, 
-  i2c_channel=2**(i+4) # calculates binary that gives channel pos, ie channel 0 is 0b00000001 and channel 4 is b0b00010000
+  i2c_channel=2**(i+2) # calculates binary that gives channel pos, ie channel 0 is 0b00000001 and channel 4 is b0b00010000
   bus.write_byte(I2C_address,i2c_channel)  # tell MUX to use this channel
-  print 'channel ', i2c_channel
+  print 'check', DEVICE[i]
   # time.sleep(0.2)
   #for each of the 4 devices
   # Set all A 8 GPA pins as  input. ie set them to 1 oXFF = 11111111
@@ -52,7 +51,7 @@ for i in range(0,4):  # for each of the 4 MCPs
 # now look for a change
 while True:
   # read the 8 registers
-  for k in range(0,1):  
+  for k in range(0,4):  
     i2c_channel=2**(k+2) # calculates binary that gives channel pos, ie channel 0 is 0b00000001 and channel 4 is b0b00010000
     bus.write_byte(I2C_address,i2c_channel)  # tell MUX to use this channel
     # time.sleep(0.1)  # just in case  
