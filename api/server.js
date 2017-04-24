@@ -3,7 +3,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
-var hits = ''
+var board1_hits = ''
+var board2_hits = ''
 
 // nodejs-python communication library
 var PythonShell = require('python-shell');
@@ -77,6 +78,8 @@ socket.on('led', function (data) {
     var pyled = new PythonShell('led_hit.py', {
         mode: 'text'
     });
+
+    // TODO: Add check for board number, keeps hits separated and only send hits to correct board
 
     console.log('Hit coordinate ' + data.cell + ' on board ' + data.board);
     if (hits.length < 1)
