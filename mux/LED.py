@@ -40,5 +40,5 @@ for i in range(8):
         ledmx(i, j, 1)
         time.sleep(0.1)
 
-display.clear()
-display.write_display()
+#display.clear()
+#display.write_display()

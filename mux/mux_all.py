@@ -42,9 +42,10 @@ for m in range(0,4):
     bus.write_byte(I2C_address, channel)
     for n in range(2): # A & B
         pos = bus.read_byte_data(DEVICE[m], GPIOn[n])
-        c = pos ^ mdrd[(m*2)+n]
-        xy = math.frexp(c)[1]
-        print '(', pos, xy, chcol[(m*2)+n], ')',
+        if pos != mbrd[(m*2)+n]:
+          c = pos ^ mbrd[(m*2)+n]
+          xy = math.frexp(c)[1]
+          print chcol[(m*2)+n], xy
     print '',
 
 # now look for a change
