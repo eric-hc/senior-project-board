@@ -15,4 +15,6 @@ display = Matrix8x8.Matrix8x8()
 bus.write_byte(I2C_address,2**1)
 display.begin()
 display.clear()
-display.write_display()
+
+for line in sys.stdin:
+    display.write_display()

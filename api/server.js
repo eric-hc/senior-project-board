@@ -103,6 +103,18 @@ socket.on('led', function (data) {
 
 socket.on('reset', function () {
    console.log('Game ended, turning off LEDs');
+
+    var pygameover = new PythonShell('game_over.py', {
+        mode: 'text'
+    });
+
+    pygameover.send('')
+
+    // end the input stream and allow the process to exit
+    pygameover.end(function (err) {
+        if (err) throw err;
+        console.log('finished');
+    });
 });
 
 // disconnect
