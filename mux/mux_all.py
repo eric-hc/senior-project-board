@@ -1,14 +1,3 @@
-ch0 = 0b00000001
-ch1 = 0b00000010
-ch2 = 0b00000100
-ch3 = 0b00001000
-ch4 = 0b00010000
-ch5 = 0b00100000
-ch6 = 0b01000000
-ch7 = 0b10000000
-
-channels = [ch0, ch1, ch2, ch3, ch4, ch5, ch6, ch7]
-
 import smbus
 import time
 import math
@@ -21,7 +10,7 @@ bus = smbus.SMBus(I2C_bus_number)
 # this program scans 64 inputs on 4 MCP23017 port exapanders and returns changes 
 mbrd = [0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF]   # mbrd is the 8 columns of the chess board this sets them to 11111111 : open w
 chcol =["A","B","C","D","E","F","G","H",'X','Y']
-DEVICE = [0x21,0x22,0x23, 0x20]  # the 4 I2c Device address of the MCP23017s (A0-A2)
+DEVICE = [0x21,0x22,0x23, 0x20]  # the 4 I2c Device address of the MCP23017s
 GPIOn = [0x12, 0x13]
 IODIRA = 0x00 # APin direction register for first 8 ie 1 = input or 2= output
 IODIRB = 0x01 # B Pin direction register
@@ -48,6 +37,16 @@ for i in range(0,4):  # for each of the 4 MCPs
   # Set pull up on GPB pins .ie from default of 0 to 11111111
   bus.write_byte_data(DEVICE[i],GPPUB,0xFF)
 
+for m in range(0,4):
+    channel = 2**(m+2)
+    bus.write_byte(I2C_address, channel)
+    for n in range(2): # A & B
+        pos = bus.read_byte_data(DEVICE[m], GPIOn[n])
+        c = pos ^ mdrd[(m*2)+n]
+        xy = math.frexp(c)[1]
+        print '(', pos, xy, chcol[(m*2)+n], ')',
+    print '',
+
 # now look for a change
 while True:
   # read the 8 registers
@@ -65,6 +64,3 @@ while True:
         print chcol[(k*2)+l], y, dirx, l
         mbrd[(k*2)+l]=a  # update the current state of the board
         # time.sleep(0.1)
-
-
-
