@@ -93,6 +93,10 @@ socket.on('led', function (data) {
     });
 });
 
+socket.on('reset', function () {
+   console.log('Game ended, turning off LEDs');
+});
+
 // disconnect
 socket.on('disconnect', function () {
     io.emit('Board disconnected');
