@@ -1,35 +1,6 @@
 import sys, json, smbus, time, math
-bus = smbus.SMBus(1) # Rev 2 Pi uses 1, Rev 1 uses 0
-# Scans 64 inputs on 4 MCP23017 port exapanders and returns changes
-board_cols = [0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]   # 8 columns of the battleship board this sets them to 11111111 : open w
-DEVICE = [0x21, 0x22, 0x23, 0x24]  # 4 I2c Device address of the MCP23017s (A0-A2)
-GPIOn = [0x12, 0x13]
-IODIRA = 0x00 # APin direction register for first 8 ie 1 = input or 2= output
-IODIRB = 0x01 # B Pin direction register
-GPIOA  = 0x12 # Register for inputs
-GPIOB  = 0x13 # B Register for inputs
-GPPUA = 0x0C  # Register for Pull ups A
-GPPUB = 0x0D  # Register for Pull ups B
 
-for i in range(4):
-    bus.write_byte_data(DEVICE[i], IODIRA, 0xFF)
-    bus.write_byte_data(DEVICE[i], GPPAU, 0xFF)
-    bus.write_byte_data(DEVICE[i], IODIRB, 0xFF)
-    bus.write_byte_data(DEVICE[i], GPPUB, 0xFF)
-
-while True:
-    # 8 registers/cols
-    for i in range(4):
-        for j in range(2):
-            a = bus.read_byte_data(DEVICE[i], GPIOn[j])
-            if a != board_cols[i + j]: # is a change
-                c = a ^ board_cols[i + j]
-                state = "close"
-                if a > board_cols[i + j] : state = "open"
-                y = math.frexp(c)[1]
-                print c, y, state
-                board_cols[i + j] = a
-                time.sleep(0.1)
+# new stuff goes here
 
 data = [
     {
