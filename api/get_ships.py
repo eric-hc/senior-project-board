@@ -33,10 +33,13 @@ def get():
         c = pos ^ mbrd[(m*2)+n]
         xy = math.frexp(c)[1]
         coord = chcol[(m*2)+n]
-        ships.append(coord)
-        print coord
+        ships.append(coord + str(xy))
   return ships
+
+data = {}
+data['board'] = '1'
+data['coords'] = get()
 
 # simple JSON echo script
 for line in sys.stdin:
-  print json.dumps(get())
+  print json.dumps(data)
