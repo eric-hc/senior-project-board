@@ -29,7 +29,6 @@ def map(x):
         'g': 7,
         'h': 8
     }[x]
-
 for line in sys.stdin:
     coord = line[:-1]
     print coord
