@@ -4,7 +4,7 @@ var app = express();
 var bodyParser = require('body-parser');
 
 var hits = ''
-var board_id = 2
+var board_id = 1
 
 // nodejs-python communication library
 var PythonShell = require('python-shell');
@@ -80,14 +80,14 @@ socket.on('led', function (data) {
     });
 
     if (data.board == board_id) {
-	console.log('Hit coordinate ' + data.cell + ' on board ' + data.board);
+        console.log('Hit coordinate ' + data.cell + ' on board ' + data.board);
         if (hits.length < 1)
-		hits = data.cell
+            hits = data.cell
         else hits += '\n' + data.cell
 
-    // send cell to python
-    pyled.send(hits);
-}
+        // send cell to python
+        pyled.send(hits);
+    }
 
     // get message from python
     pyled.on('message', function (message) {
@@ -102,14 +102,12 @@ socket.on('led', function (data) {
 });
 
 socket.on('reset', function () {
-   console.log('Game ended, turning off LEDs');
+    console.log('Game ended, turning off LEDs');
 
     var pygameover = new PythonShell('game_over.py', {
         mode: 'text'
     });
-
-ships = ''
-
+    hits = ''
     pygameover.send('')
 
     // end the input stream and allow the process to exit
