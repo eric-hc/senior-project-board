@@ -4,7 +4,7 @@ var app = express();
 var bodyParser = require('body-parser');
 
 var hits = ''
-var board_id = 1
+var board_id = 2
 
 // nodejs-python communication library
 var PythonShell = require('python-shell');
