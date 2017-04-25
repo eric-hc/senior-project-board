@@ -1,5 +1,5 @@
 # game ends, turns off all LEDs
-import smbus
+import smbus, sys
 from Adafruit_LED_Backpack import Matrix8x8
 
 # MUX stuff
