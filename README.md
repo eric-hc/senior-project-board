@@ -6,6 +6,7 @@ This repository contains the necessary pieces to deploy this app on a Raspberry 
  * Raspberry Pi 3 
  * HT16K33 LED Matrix
  * MCP23017 port expanders
+ * TCA9548A I2C multiplexer
  * LEDs, reed switches, etc.
   
 ## Configuring I2C
@@ -16,9 +17,14 @@ This repository contains the necessary pieces to deploy this app on a Raspberry 
   * Select Finish
   * Reboot with `sudo reboot`
   * Test with `sudo i2cdetect -y 1`
-  * Try this `sudo apt-get install python-smbus`
+  * Run `sudo apt-get install python-smbus`
   
 ## Add Adafruit LED Matrix dependency
+  * Run `sudo apt-get update
+sudo apt-get install build-essential python-dev`  
+  * Make sure the python-smbus and python-imaging library is installed by running: `sudo apt-get install python-smbus python-imaging`
+  * Clone the repository `git clone https://github.com/adafruit/Adafruit_Python_LED_Backpack.git`
+  * Navigate to that cloned repository and run `sudo python setup.py install`
   
 ## Running the server manually
  * Open Terminal
