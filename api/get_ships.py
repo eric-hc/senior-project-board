@@ -33,8 +33,8 @@ def get():
         c = pos ^ mbrd[(m*2)+n]
         xy = math.frexp(c)[1]
         coord = chcol[(m*2)+n]
+        coord += xy
         ships.append(coord)
-        print coord
   return ships
 
 # simple JSON echo script

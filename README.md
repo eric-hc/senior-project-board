@@ -5,7 +5,7 @@ This repository contains the necessary pieces to deploy this app on a Raspberry 
 ## Prerequisites
  * Raspberry Pi 3 
  * HT16K33 LED Matrix
- * MCP23017 port expander 
+ * MCP23017 port expanders
  * LEDs, reed switches, etc.
   
 ## Configuring I2C
